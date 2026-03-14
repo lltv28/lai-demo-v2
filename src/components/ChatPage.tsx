@@ -1007,6 +1007,237 @@ function ThinkingStepsDisplay({ steps }: { steps: ThinkingStepDisplay[] }) {
   );
 }
 
+/* ── Ad Results Display — rendered when content === "[AD_RESULTS]" ── */
+
+const AD_PLACEHOLDER_GRADIENTS = [
+  'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+  'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+  'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+  'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+  'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
+  'linear-gradient(135deg, #fccb90 0%, #d57eeb 100%)',
+  'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)',
+  'linear-gradient(135deg, #f5576c 0%, #ff6a00 100%)',
+  'linear-gradient(135deg, #13547a 0%, #80d0c7 100%)',
+  'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
+  'linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)',
+  'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
+  'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)',
+  'linear-gradient(135deg, #fddb92 0%, #d1fdff 100%)',
+  'linear-gradient(135deg, #c471f5 0%, #fa71cd 100%)',
+  'linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%)',
+  'linear-gradient(135deg, #feada6 0%, #f5efef 100%)',
+  'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+  'linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)',
+];
+
+const AD_COPY_DATA = [
+  { headline: 'Stop Guessing, Start Scaling', primaryText: 'Your competitors already know what works. Now you can too — AI-powered ad intelligence that turns their best strategies into your next campaign.', cta: 'Get Started Free' },
+  { headline: 'Your Competitors\' Best Ads, Decoded', primaryText: 'We analyzed 50 of their top-performing creatives so you don\'t have to. See exactly what\'s working and why.', cta: 'See the Analysis' },
+  { headline: 'Launch Winning Ads in Minutes', primaryText: 'Why start from scratch? Our AI studies the competition and generates scroll-stopping creatives tailored to your brand.', cta: 'Try It Now' },
+  { headline: 'The Ad Strategy They Don\'t Want You to See', primaryText: 'Every brand leaves a trail. We follow it, decode their playbook, and hand you the blueprint to outperform them.', cta: 'Reveal Their Strategy' },
+  { headline: 'Better Ads, Less Guesswork', primaryText: 'Tired of A/B testing blind? Let AI analyze what\'s already proven to convert and build your next campaign around it.', cta: 'Start Analyzing' },
+  { headline: 'From Competitor Research to Ready-to-Run Ads', primaryText: 'One URL. That\'s all it takes. Paste their Facebook page and get a full creative strategy in under 60 seconds.', cta: 'Paste a URL' },
+  { headline: 'Ad Creative on Autopilot', primaryText: 'Stop spending hours on ad design. Our AI generates high-converting creatives based on real competitor data — not templates.', cta: 'Generate Ads' },
+  { headline: 'What If You Could See Their Entire Ad Playbook?', primaryText: 'From copy angles to visual themes, we break down exactly what your competitors are running — and help you do it better.', cta: 'Unlock Insights' },
+  { headline: 'Outsmart, Don\'t Outspend', primaryText: 'You don\'t need a bigger budget. You need better intel. See what\'s converting for your competitors and adapt it to your brand.', cta: 'Get Intel Now' },
+  { headline: 'AI-Generated Ads That Actually Convert', primaryText: 'Trained on real competitor performance data, not stock templates. Every creative is built to compete from day one.', cta: 'Create My Ads' },
+];
+
+function AdResultsDisplay() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+      {/* Section heading */}
+      <div>
+        <h3
+          style={{
+            fontFamily: 'var(--font-primary)',
+            fontSize: '18px',
+            fontWeight: 600,
+            lineHeight: '24px',
+            color: 'var(--alpha-light-900)',
+            marginBottom: '4px',
+          }}
+        >
+          Generated Ad Creatives
+        </h3>
+        <p
+          style={{
+            fontFamily: 'var(--font-primary)',
+            fontSize: 'var(--body-3-size)',
+            lineHeight: 'var(--body-3-line)',
+            color: 'var(--alpha-light-400)',
+          }}
+        >
+          Based on competitor creative patterns — 20 new ad concepts
+        </p>
+      </div>
+
+      {/* 4-column image grid */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '12px',
+        }}
+      >
+        {AD_PLACEHOLDER_GRADIENTS.map((gradient, i) => (
+          <div
+            key={i}
+            className="ad-card-enter"
+            style={{
+              animationDelay: `${i * 80}ms`,
+              aspectRatio: '4 / 5',
+              borderRadius: '16px',
+              background: gradient,
+              border: '1px solid var(--alpha-light-100)',
+              cursor: 'pointer',
+              transition: 'transform 200ms ease, box-shadow 200ms ease',
+              display: 'flex',
+              alignItems: 'flex-end',
+              padding: '12px',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.03)';
+              (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 24px rgba(0,0,0,0.12)';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)';
+              (e.currentTarget as HTMLDivElement).style.boxShadow = 'none';
+            }}
+          >
+            <span
+              style={{
+                fontFamily: 'var(--font-primary)',
+                fontSize: 'var(--body-4-size)',
+                fontWeight: 500,
+                color: 'rgba(255,255,255,0.7)',
+              }}
+            >
+              Ad {i + 1}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Divider */}
+      <div style={{ height: '1px', background: 'var(--alpha-light-100)' }} />
+
+      {/* Ad Copy section heading */}
+      <div>
+        <h3
+          style={{
+            fontFamily: 'var(--font-primary)',
+            fontSize: '18px',
+            fontWeight: 600,
+            lineHeight: '24px',
+            color: 'var(--alpha-light-900)',
+            marginBottom: '4px',
+          }}
+        >
+          Generated Ad Copy
+        </h3>
+        <p
+          style={{
+            fontFamily: 'var(--font-primary)',
+            fontSize: 'var(--body-3-size)',
+            lineHeight: 'var(--body-3-line)',
+            color: 'var(--alpha-light-400)',
+          }}
+        >
+          10 high-converting copy variations
+        </p>
+      </div>
+
+      {/* Ad copy table */}
+      <div style={{ overflowX: 'auto' }}>
+        <table
+          style={{
+            width: '100%',
+            borderCollapse: 'collapse',
+            fontFamily: 'var(--font-primary)',
+            fontSize: 'var(--body-3-size)',
+            lineHeight: 'var(--body-3-line)',
+          }}
+        >
+          <thead>
+            <tr>
+              {['#', 'Headline', 'Primary Text', 'CTA'].map((header) => (
+                <th
+                  key={header}
+                  style={{
+                    textAlign: 'left',
+                    padding: '10px 12px',
+                    fontWeight: 600,
+                    color: 'var(--alpha-light-600)',
+                    borderBottom: '2px solid var(--alpha-light-100)',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {AD_COPY_DATA.map((row, i) => (
+              <tr key={i}>
+                <td
+                  style={{
+                    padding: '10px 12px',
+                    color: 'var(--alpha-light-400)',
+                    borderBottom: '1px solid var(--alpha-light-50)',
+                    whiteSpace: 'nowrap',
+                    verticalAlign: 'top',
+                  }}
+                >
+                  {i + 1}
+                </td>
+                <td
+                  style={{
+                    padding: '10px 12px',
+                    color: 'var(--alpha-light-900)',
+                    fontWeight: 500,
+                    borderBottom: '1px solid var(--alpha-light-50)',
+                    whiteSpace: 'nowrap',
+                    verticalAlign: 'top',
+                  }}
+                >
+                  {row.headline}
+                </td>
+                <td
+                  style={{
+                    padding: '10px 12px',
+                    color: 'var(--alpha-light-600)',
+                    borderBottom: '1px solid var(--alpha-light-50)',
+                    verticalAlign: 'top',
+                    minWidth: '280px',
+                  }}
+                >
+                  {row.primaryText}
+                </td>
+                <td
+                  style={{
+                    padding: '10px 12px',
+                    color: 'var(--color-pelorous-600)',
+                    fontWeight: 500,
+                    borderBottom: '1px solid var(--alpha-light-50)',
+                    whiteSpace: 'nowrap',
+                    verticalAlign: 'top',
+                  }}
+                >
+                  {row.cta}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 /** AI response — avatar row + indented body text + suggestion chips (Figma 18:622) */
 function AssistantMessage({
   content,
