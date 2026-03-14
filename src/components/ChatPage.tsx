@@ -1013,16 +1013,16 @@ const AD_PLACEHOLDER_GRADIENTS = [
 ];
 
 const AD_COPY_DATA = [
-  { headline: 'Stop Guessing, Start Scaling', primaryText: 'Your competitors already know what works. Now you can too — AI-powered ad intelligence that turns their best strategies into your next campaign.', cta: 'Get Started Free' },
-  { headline: 'Your Competitors\' Best Ads, Decoded', primaryText: 'We analyzed 50 of their top-performing creatives so you don\'t have to. See exactly what\'s working and why.', cta: 'See the Analysis' },
-  { headline: 'Launch Winning Ads in Minutes', primaryText: 'Why start from scratch? Our AI studies the competition and generates scroll-stopping creatives tailored to your brand.', cta: 'Try It Now' },
-  { headline: 'The Ad Strategy They Don\'t Want You to See', primaryText: 'Every brand leaves a trail. We follow it, decode their playbook, and hand you the blueprint to outperform them.', cta: 'Reveal Their Strategy' },
-  { headline: 'Better Ads, Less Guesswork', primaryText: 'Tired of A/B testing blind? Let AI analyze what\'s already proven to convert and build your next campaign around it.', cta: 'Start Analyzing' },
-  { headline: 'From Competitor Research to Ready-to-Run Ads', primaryText: 'One URL. That\'s all it takes. Paste their Facebook page and get a full creative strategy in under 60 seconds.', cta: 'Paste a URL' },
-  { headline: 'Ad Creative on Autopilot', primaryText: 'Stop spending hours on ad design. Our AI generates high-converting creatives based on real competitor data — not templates.', cta: 'Generate Ads' },
-  { headline: 'What If You Could See Their Entire Ad Playbook?', primaryText: 'From copy angles to visual themes, we break down exactly what your competitors are running — and help you do it better.', cta: 'Unlock Insights' },
-  { headline: 'Outsmart, Don\'t Outspend', primaryText: 'You don\'t need a bigger budget. You need better intel. See what\'s converting for your competitors and adapt it to your brand.', cta: 'Get Intel Now' },
-  { headline: 'AI-Generated Ads That Actually Convert', primaryText: 'Trained on real competitor performance data, not stock templates. Every creative is built to compete from day one.', cta: 'Create My Ads' },
+  { headline: 'Stop Guessing, Start Scaling', primaryText: 'Your competitors already know what works. Now you can too — AI-powered ad intelligence that turns their best strategies into your next campaign.', cta: 'Learn More' },
+  { headline: 'Your Competitors\' Best Ads, Decoded', primaryText: 'We analyzed 50 of their top-performing creatives so you don\'t have to. See exactly what\'s working and why.', cta: 'Learn More' },
+  { headline: 'Launch Winning Ads in Minutes', primaryText: 'Why start from scratch? Our AI studies the competition and generates scroll-stopping creatives tailored to your brand.', cta: 'Learn More' },
+  { headline: 'The Ad Strategy They Don\'t Want You to See', primaryText: 'Every brand leaves a trail. We follow it, decode their playbook, and hand you the blueprint to outperform them.', cta: 'Learn More' },
+  { headline: 'Better Ads, Less Guesswork', primaryText: 'Tired of A/B testing blind? Let AI analyze what\'s already proven to convert and build your next campaign around it.', cta: 'Learn More' },
+  { headline: 'From Competitor Research to Ready-to-Run Ads', primaryText: 'One URL. That\'s all it takes. Paste their Facebook page and get a full creative strategy in under 60 seconds.', cta: 'Learn More' },
+  { headline: 'Ad Creative on Autopilot', primaryText: 'Stop spending hours on ad design. Our AI generates high-converting creatives based on real competitor data — not templates.', cta: 'Learn More' },
+  { headline: 'What If You Could See Their Entire Ad Playbook?', primaryText: 'From copy angles to visual themes, we break down exactly what your competitors are running — and help you do it better.', cta: 'Learn More' },
+  { headline: 'Outsmart, Don\'t Outspend', primaryText: 'You don\'t need a bigger budget. You need better intel. See what\'s converting for your competitors and adapt it to your brand.', cta: 'Learn More' },
+  { headline: 'AI-Generated Ads That Actually Convert', primaryText: 'Trained on real competitor performance data, not stock templates. Every creative is built to compete from day one.', cta: 'Learn More' },
 ];
 
 const EMAIL_COPY_DATA = [
