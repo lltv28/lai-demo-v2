@@ -5,7 +5,7 @@ import clockSvg from '../assets/figma-export/fe16e148d3d50318658eea3bc9791213894
 
 const CHATS = [
   {
-    agent: 'Leanne AI',
+    agent: 'Lucas AI',
     title:
       'I feel fulfilled when I impact high-level clients. Delivering unique insights that lead to breakthroughs i\u2026',
     body: 'I hear you, and I want you to know this is such a common, human experience. First, let me ask you something: if you fear your friends are judging you about your body, is it possible that you\u2019re the one ju\u2026',

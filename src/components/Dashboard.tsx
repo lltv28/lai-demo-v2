@@ -235,7 +235,7 @@ export default function Dashboard() {
                     letterSpacing: 'var(--heading-h1-spacing)',
                   }}
                 >
-                  Hey Marcos, what&rsquo;s up?
+                  What can I research for you?
                 </h1>
               </div>
 

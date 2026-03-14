@@ -1058,7 +1058,7 @@ function AssistantMessage({
             color: 'var(--alpha-light-900)',
           }}
         >
-          Leanne
+          Lucas AI
         </span>
         <span
           style={{

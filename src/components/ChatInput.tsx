@@ -314,7 +314,7 @@ export default function ChatInput({ disabled = false, onTextChange, onSubmit, pl
               document.body
             )}
 
-          {/* Leanne AI tag */}
+          {/* Lucas AI tag */}
           <div
             className="flex items-center"
             style={{
@@ -337,7 +337,7 @@ export default function ChatInput({ disabled = false, onTextChange, onSubmit, pl
                   color: 'var(--color-pelorous-600)',
                 }}
               >
-                Leanne AI
+                Lucas AI
               </span>
             </div>
           </div>
