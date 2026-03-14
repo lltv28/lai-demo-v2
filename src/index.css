@@ -966,3 +966,20 @@ input, button, select, textarea, [contenteditable] {
   from { transform: scaleY(0); opacity: 0; }
   to { transform: scaleY(1); opacity: 1; }
 }
+
+/* ── Ad Results Grid ── */
+
+.ad-card-enter {
+  animation: ad-card-fade-slide-up 500ms ease-out both;
+}
+
+@keyframes ad-card-fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
