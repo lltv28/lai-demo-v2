@@ -1013,6 +1013,8 @@ const EMAIL_COPY_DATA = [
 ];
 
 function AdResultsDisplay() {
+  const [viewImage, setViewImage] = useState<string | null>(null);
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
       {/* Section heading */}
@@ -1074,7 +1076,7 @@ function AdResultsDisplay() {
             />
             {/* Hover overlay with View + Download */}
             <div className="ad-card-overlay">
-              <button className="ad-card-btn">View</button>
+              <button className="ad-card-btn" onClick={(e) => { e.stopPropagation(); setViewImage(src); }}>View</button>
               <button className="ad-card-btn">Download</button>
             </div>
           </div>
@@ -1289,6 +1291,20 @@ function AdResultsDisplay() {
           </div>
         ))}
       </div>
+      {/* Image view modal */}
+      {viewImage && (
+        <div
+          className="ad-image-modal-overlay"
+          onClick={() => setViewImage(null)}
+        >
+          <img
+            src={viewImage}
+            alt="Ad preview"
+            className="ad-image-modal-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
