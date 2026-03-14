@@ -1376,7 +1376,7 @@ export default function ChatPage({ initialMessage, simulatedResponse, simulatedS
             };
           }),
         );
-        await new Promise((r) => setTimeout(r, 1500 + Math.random() * 800));
+        await new Promise((r) => setTimeout(r, 3200 + Math.random() * 1300));
       }
       setThinkingSteps((prev) => prev.map((s) => ({ ...s, status: 'done' as StepStatus })));
       await new Promise((r) => setTimeout(r, 600));
