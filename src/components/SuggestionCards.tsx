@@ -13,6 +13,6 @@ export function getAdResearchThinkingSteps(_userInput?: string): ThinkingStep[] 
     { label: 'Found 50 recent ads — analyzing creative patterns...' },
     { label: 'Extracting top-performing ad copy and visual themes...' },
     { label: 'Comparing with top ad creatives in ad account from last 30 days...' },
-    { label: 'Generating new ad creatives tailored to your brand...' },
+    { label: 'Generating ad creatives, ad copy, and marketing emails based on provided data...' },
   ];
 }
