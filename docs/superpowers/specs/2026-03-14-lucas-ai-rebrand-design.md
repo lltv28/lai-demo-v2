@@ -60,7 +60,7 @@ Step 4: "Generating new ad creatives tailored to your brand..." — ~5s
 ```
 
 ### Thinking step timing
-- Modify the per-step delay formula in `simulateTyping` from `1500 + Math.random() * 800` (~1.5-2.3s) to `3500 + Math.random() * 1500` (~3.5-5s) to achieve 15-20 second total duration across 4 animated steps
+- Modify the per-step delay formula in `simulateTyping` from `1500 + Math.random() * 800` (~1.5-2.3s) to `3200 + Math.random() * 1300` (~3.2-4.5s) to achieve 15-20 second total duration across 4 animated steps
 - All steps show "done", collapse after 2s, then results appear
 
 ## Section 3: Ad Results Display
