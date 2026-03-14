@@ -983,3 +983,49 @@ input, button, select, textarea, [contenteditable] {
     transform: translateY(0);
   }
 }
+
+.ad-card-hover {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.ad-card-hover:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.ad-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.ad-card-hover:hover .ad-card-overlay {
+  opacity: 1;
+}
+
+.ad-card-btn {
+  font-family: var(--font-primary);
+  font-size: var(--body-4-size);
+  font-weight: 500;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 6px 20px;
+  cursor: pointer;
+  transition: background 150ms ease;
+  backdrop-filter: blur(4px);
+}
+
+.ad-card-btn:hover {
+  background: rgba(255, 255, 255, 0.32);
+}

@@ -1025,6 +1025,14 @@ const AD_COPY_DATA = [
   { headline: 'AI-Generated Ads That Actually Convert', primaryText: 'Trained on real competitor performance data, not stock templates. Every creative is built to compete from day one.', cta: 'Create My Ads' },
 ];
 
+const EMAIL_COPY_DATA = [
+  { subject: 'You\'re leaving money on the table', preview: 'Your competitors are running ads you haven\'t seen yet', body: 'Hi there,\n\nWhile you\'re brainstorming your next campaign, your competitors already launched 12 new ads this week. We tracked every one of them — the copy, the visuals, the targeting.\n\nWant to see their playbook? We\'ll hand it to you in 60 seconds.\n\nClick below to run your first competitor analysis free.' },
+  { subject: 'Their best ad took 4 minutes to find', preview: 'We found it. Here\'s what makes it work.', body: 'Hey,\n\nWe just ran an analysis on your top competitor\'s Facebook ads. Their highest-performing creative? A simple image ad with one bold headline.\n\nNo fancy video. No complex funnel. Just a clear message that hits the right pain point at the right time.\n\nWe broke down exactly why it works — and generated 5 variations tailored to your brand. Ready to see them?' },
+  { subject: 'Stop guessing. Start winning.', preview: 'AI-powered ad intelligence is here', body: 'Hi,\n\nEvery dollar you spend on ads that don\'t convert is a dollar your competitor pockets. But what if you could see exactly what\'s working for them before you spend a cent?\n\nOur AI analyzes your competitor\'s entire ad library and generates ready-to-run creatives based on their proven patterns.\n\nNo more A/B testing in the dark. No more wasted budget. Just data-driven ads that compete from day one.' },
+  { subject: 'We analyzed 50 of their ads so you don\'t have to', preview: 'Your competitor research report is ready', body: 'Hey there,\n\nYou asked us to look into your competitor\'s ad strategy. Here\'s what we found:\n\n• They\'re running 50 active ads across 3 campaigns\n• Their top creative has been live for 47 days (that means it\'s profitable)\n• They\'re using 4 distinct copy angles, but one outperforms the rest by 3x\n\nWe\'ve already generated new ad concepts based on these insights. Your personalized report is waiting inside.' },
+  { subject: 'The ads your competitors don\'t want you to see', preview: 'Full breakdown inside — copy, visuals, and strategy', body: 'Hi,\n\nEvery brand leaves a digital trail. Their Facebook ads tell a story — what\'s working, what they\'ve abandoned, and where they\'re doubling down.\n\nWe followed your competitor\'s trail and decoded their entire ad playbook:\n\n→ Which creatives they\'re scaling\n→ What copy angles drive engagement\n→ How their strategy shifted in the last 30 days\n\nMore importantly, we used all of this to generate ads specifically designed to outperform theirs. Check out your custom report.' },
+];
+
 function AdResultsDisplay() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
@@ -1065,7 +1073,7 @@ function AdResultsDisplay() {
         {AD_PLACEHOLDER_GRADIENTS.map((gradient, i) => (
           <div
             key={i}
-            className="ad-card-enter"
+            className="ad-card-enter ad-card-hover"
             style={{
               animationDelay: `${i * 80}ms`,
               aspectRatio: '4 / 5',
@@ -1073,18 +1081,11 @@ function AdResultsDisplay() {
               background: gradient,
               border: '1px solid var(--alpha-light-100)',
               cursor: 'pointer',
-              transition: 'transform 200ms ease, box-shadow 200ms ease',
+              position: 'relative',
+              overflow: 'hidden',
               display: 'flex',
               alignItems: 'flex-end',
               padding: '12px',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLDivElement).style.transform = 'scale(1.03)';
-              (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 24px rgba(0,0,0,0.12)';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLDivElement).style.transform = 'scale(1)';
-              (e.currentTarget as HTMLDivElement).style.boxShadow = 'none';
             }}
           >
             <span
@@ -1097,6 +1098,11 @@ function AdResultsDisplay() {
             >
               Ad {i + 1}
             </span>
+            {/* Hover overlay with View + Download */}
+            <div className="ad-card-overlay">
+              <button className="ad-card-btn">View</button>
+              <button className="ad-card-btn">Download</button>
+            </div>
           </div>
         ))}
       </div>
@@ -1213,6 +1219,101 @@ function AdResultsDisplay() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Divider */}
+      <div style={{ height: '1px', background: 'var(--alpha-light-100)' }} />
+
+      {/* Email Copy section heading */}
+      <div>
+        <h3
+          style={{
+            fontFamily: 'var(--font-primary)',
+            fontSize: '18px',
+            fontWeight: 600,
+            lineHeight: '24px',
+            color: 'var(--alpha-light-900)',
+            marginBottom: '4px',
+          }}
+        >
+          Generated Email Copy
+        </h3>
+        <p
+          style={{
+            fontFamily: 'var(--font-primary)',
+            fontSize: 'var(--body-3-size)',
+            lineHeight: 'var(--body-3-line)',
+            color: 'var(--alpha-light-400)',
+          }}
+        >
+          5 email sequences inspired by competitor messaging
+        </p>
+      </div>
+
+      {/* Email copy cards */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        {EMAIL_COPY_DATA.map((email, i) => (
+          <div
+            key={i}
+            className="ad-card-enter"
+            style={{
+              animationDelay: `${i * 100}ms`,
+              borderRadius: '12px',
+              border: '1px solid var(--alpha-light-100)',
+              padding: '16px 20px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span
+                style={{
+                  fontFamily: 'var(--font-primary)',
+                  fontSize: 'var(--body-4-size)',
+                  fontWeight: 500,
+                  color: 'var(--alpha-light-400)',
+                }}
+              >
+                Email {i + 1}
+              </span>
+            </div>
+            <div
+              style={{
+                fontFamily: 'var(--font-primary)',
+                fontSize: 'var(--body-3-size)',
+                lineHeight: 'var(--body-3-line)',
+                fontWeight: 600,
+                color: 'var(--alpha-light-900)',
+              }}
+            >
+              Subject: {email.subject}
+            </div>
+            <div
+              style={{
+                fontFamily: 'var(--font-primary)',
+                fontSize: 'var(--body-4-size)',
+                lineHeight: 'var(--body-4-line)',
+                color: 'var(--color-pelorous-600)',
+                fontStyle: 'italic',
+              }}
+            >
+              Preview: {email.preview}
+            </div>
+            <div
+              style={{
+                fontFamily: 'var(--font-primary)',
+                fontSize: 'var(--body-3-size)',
+                lineHeight: '22px',
+                color: 'var(--alpha-light-600)',
+                whiteSpace: 'pre-line',
+                marginTop: '4px',
+              }}
+            >
+              {email.body}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
