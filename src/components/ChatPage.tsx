@@ -1601,7 +1601,7 @@ export default function ChatPage({ initialMessage, simulatedResponse, simulatedS
         await new Promise((r) => setTimeout(r, 3200 + Math.random() * 1300));
       }
       setThinkingSteps((prev) => prev.map((s) => ({ ...s, status: 'done' as StepStatus })));
-      await new Promise((r) => setTimeout(r, 600));
+      await new Promise((r) => setTimeout(r, 2000));
     }
 
     const lines = answer.split('\n');
@@ -1717,7 +1717,7 @@ export default function ChatPage({ initialMessage, simulatedResponse, simulatedS
         <div
           className="flex flex-col w-full"
           style={{
-            maxWidth: messages.some((m) => m.content === AD_RESULTS_MARKER) ? '1100px' : '704px',
+            maxWidth: messages.some((m) => m.content === AD_RESULTS_MARKER) ? '880px' : '704px',
             paddingLeft: '8px',
             paddingRight: '8px',
             gap: '32px',
