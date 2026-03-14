@@ -990,7 +990,7 @@ function ThinkingStepsDisplay({ steps }: { steps: ThinkingStepDisplay[] }) {
 
 /* ── Ad Results Display — rendered when content === "[AD_RESULTS]" ── */
 
-const AD_IMAGES = Array.from({ length: 20 }, (_, i) => `/ads/ad-${String(i + 1).padStart(2, '0')}.png`);
+const AD_IMAGES = Array.from({ length: 20 }, (_, i) => `/ads/ad-${String(i + 1).padStart(2, '0')}.jpg`);
 
 const AD_COPY_DATA = [
   { headline: 'Stop Guessing, Start Scaling', primaryText: 'Your competitors already know what works. Now you can too — AI-powered ad intelligence that turns their best strategies into your next campaign.', cta: 'Learn More' },
