@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import ChatInput from './ChatInput';
 import { PenSparkleIcon, SuggestionArrowIcon, CopyIcon, ThumbsUpIcon, ThumbsDownIcon, VoiceIcon, FeedbackChatIcon, MicIcon, PauseIcon, PlayIcon, ArrowDownIcon } from './Icons';
 import { streamChat, type ChatMessage as APIChatMessage } from '../services/openai';
+import { AD_RESULTS_MARKER } from './SuggestionCards';
 import type { ThinkingStep } from './SuggestionCards';
 
 /* ── Types ── */
@@ -1312,7 +1313,11 @@ function AssistantMessage({
           <div className="chat-divider" />
         )}
         {content ? (
-          <RichContent content={content} isStreaming={isStreaming} totalTableRows={totalTableRows} totalRoadmapStages={totalRoadmapStages} />
+          content === AD_RESULTS_MARKER ? (
+            <AdResultsDisplay />
+          ) : (
+            <RichContent content={content} isStreaming={isStreaming} totalTableRows={totalTableRows} totalRoadmapStages={totalRoadmapStages} />
+          )
         ) : isStreaming && !(thinkingSteps && thinkingSteps.length > 0 && !thinkingSteps.every((s) => s.status === 'done')) ? (
           <div className="typing-indicator">
             <span />
@@ -1726,10 +1731,11 @@ export default function ChatPage({ initialMessage, simulatedResponse, simulatedS
         <div
           className="flex flex-col w-full"
           style={{
-            maxWidth: '704px',
+            maxWidth: messages.some((m) => m.content === AD_RESULTS_MARKER) ? '1100px' : '704px',
             paddingLeft: '8px',
             paddingRight: '8px',
             gap: '32px',
+            transition: 'max-width 400ms ease',
           }}
         >
           {messages.map((msg, i) =>
