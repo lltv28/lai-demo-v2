@@ -1338,18 +1338,22 @@ function AssistantMessage({
       {/* Avatar + name + time */}
       <div className="flex items-center" style={{ gap: '8px' }}>
         <div
-          className="shrink-0 flex items-center justify-center"
-          style={{ width: '18px' }}
+          className="shrink-0 overflow-hidden"
+          style={{
+            width: '24px',
+            height: '24px',
+            borderRadius: 'var(--radius-full)',
+            border: '1px solid var(--alpha-light-50)',
+          }}
         >
           <img
             src="/lucas-avatar.jpg"
             alt="Lucas AI"
             style={{
-              width: '24px',
-              height: '24px',
-              borderRadius: 'var(--radius-full)',
-              border: '1px solid var(--alpha-light-50)',
+              width: '100%',
+              height: '100%',
               objectFit: 'cover',
+              display: 'block',
             }}
           />
         </div>
