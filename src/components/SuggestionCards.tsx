@@ -9,7 +9,7 @@ export const AD_RESULTS_MARKER = '[AD_RESULTS]';
 export function getAdResearchThinkingSteps(userInput: string): ThinkingStep[] {
   return [
     { label: 'Researching competitor ads...' },
-    { label: `Searching Facebook Ad Library for ${userInput}...` },
+    { label: 'Searching Facebook Ad Library for ClickFunnels...' },
     { label: 'Found 50 recent ads — analyzing creative patterns...' },
     { label: 'Extracting top-performing ad copy and visual themes...' },
     { label: 'Generating new ad creatives tailored to your brand...' },
