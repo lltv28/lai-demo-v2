@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import Sidebar, { type SidebarPage } from './Sidebar';
 import ChatInput from './ChatInput';
-import SuggestionCards, { simulatedResponses, simulatedThinkingSteps, simulatedImages } from './SuggestionCards';
+import { AD_RESULTS_MARKER, getAdResearchThinkingSteps } from './SuggestionCards';
 import type { ThinkingStep } from './SuggestionCards';
 import MyChatsPage from './MyChatsPage';
 import ChatPage from './ChatPage';
@@ -32,13 +32,10 @@ export default function Dashboard() {
   }, []);
 
   const startSimulatedChat = useCallback((message: string) => {
-    const response = simulatedResponses[message];
-    const steps = simulatedThinkingSteps[message];
-    const image = simulatedImages[message];
     setChatInitialMessage(message);
-    setChatSimulatedResponse(response);
-    setChatSimulatedSteps(steps);
-    setChatSimulatedImage(image);
+    setChatSimulatedResponse(AD_RESULTS_MARKER);
+    setChatSimulatedSteps(getAdResearchThinkingSteps(message));
+    setChatSimulatedImage(undefined);
     setChatKey((k) => k + 1);
     setCurrentPage('chat');
   }, []);
@@ -241,13 +238,9 @@ export default function Dashboard() {
 
               {/* Chat input */}
               <div className="chat-card-enter w-full" style={{ animationDelay: '80ms' }}>
-                <ChatInput onSubmit={startChat} />
+                <ChatInput onSubmit={startSimulatedChat} placeholder="Enter a competitor's Facebook page URL..." />
               </div>
 
-              {/* Suggestion cards */}
-              <div className="chat-card-enter w-full" style={{ animationDelay: '160ms' }}>
-                <SuggestionCards onSelect={startSimulatedChat} />
-              </div>
             </div>
             {/* Bottom spacer */}
             <div className="flex-1 min-h-0 shrink-[3]" />
