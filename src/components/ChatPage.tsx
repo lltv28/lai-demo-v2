@@ -1596,13 +1596,17 @@ export default function ChatPage({ initialMessage, simulatedResponse, simulatedS
     setIsStreaming(true);
 
     if (steps && steps.length > 0) {
+      // Show idle header alone first
+      setThinkingSteps([{ label: steps[0].label, status: 'idle' as StepStatus }]);
+
+      await new Promise((r) => setTimeout(r, 1200));
+
+      // Now add all processing steps (pending) so they can animate in one by one
       const allSteps: ThinkingStepDisplay[] = steps.map((s, i) => ({
         label: s.label,
         status: (i === 0 ? 'idle' : 'pending') as StepStatus,
       }));
       setThinkingSteps(allSteps);
-
-      await new Promise((r) => setTimeout(r, 1200));
 
       for (let si = 1; si < steps.length; si++) {
         setThinkingSteps((prev) =>
