@@ -897,15 +897,12 @@ function ThinkingStepsDisplay({ steps }: { steps: ThinkingStepDisplay[] }) {
             }}
           >
             <span
-              className={idleStep.status === 'idle' ? 'thinking-shimmer-text' : undefined}
               style={{
                 fontFamily: 'var(--font-primary)',
                 fontSize: 'var(--body-3-size)',
                 lineHeight: 'var(--body-3-line)',
                 color: 'var(--alpha-light-600)',
-                WebkitTextFillColor: idleStep.status === 'idle' ? 'transparent' : undefined,
                 fontWeight: 500,
-                transition: 'color 500ms ease, -webkit-text-fill-color 500ms ease',
               }}
             >
               {idleStep.label}
