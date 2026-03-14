@@ -1673,7 +1673,8 @@ export default function ChatPage({ initialMessage, simulatedResponse, simulatedS
             };
           }),
         );
-        await new Promise((r) => setTimeout(r, 3200 + Math.random() * 1300));
+        const stepDelay = si === 2 ? 5000 : si === 4 ? 12000 : 3200 + Math.random() * 1300;
+        await new Promise((r) => setTimeout(r, stepDelay));
       }
       setThinkingSteps((prev) => prev.map((s) => ({ ...s, status: 'done' as StepStatus })));
       await new Promise((r) => setTimeout(r, 2000));

@@ -6,7 +6,7 @@ export interface ThinkingStep {
 export const AD_RESULTS_MARKER = '[AD_RESULTS]';
 
 // 5-element array: index 0 = idle header, indices 1-4 = animated processing steps
-export function getAdResearchThinkingSteps(userInput: string): ThinkingStep[] {
+export function getAdResearchThinkingSteps(_userInput?: string): ThinkingStep[] {
   return [
     { label: 'Researching competitor ads...' },
     { label: 'Searching Facebook Ad Library for ClickFunnels...' },
