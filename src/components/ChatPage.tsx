@@ -869,9 +869,8 @@ function ThinkingStepsDisplay({ steps }: { steps: ThinkingStepDisplay[] }) {
 
   useEffect(() => {
     if (allDone && !prevAllDoneRef.current) {
-      const timer = setTimeout(() => setCollapsed(true), 2000);
       prevAllDoneRef.current = true;
-      return () => clearTimeout(timer);
+      // Keep thinking steps expanded — don't auto-collapse
     }
   }, [allDone]);
 
@@ -1519,6 +1518,9 @@ export default function ChatPage({ initialMessage, simulatedResponse, simulatedS
   }, []);
 
   useEffect(() => {
+    // Don't auto-scroll when ad results are displayed — keep viewport on thinking steps
+    const lastMsg = messages[messages.length - 1];
+    if (lastMsg?.content === AD_RESULTS_MARKER) return;
     scrollToBottom();
   }, [messages, scrollToBottom]);
 
