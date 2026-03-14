@@ -1020,7 +1020,9 @@ input, button, select, textarea, [contenteditable] {
   background: rgba(255, 255, 255, 0.18);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
-  padding: 6px 20px;
+  width: 90px;
+  padding: 6px 0;
+  text-align: center;
   cursor: pointer;
   transition: background 150ms ease;
   backdrop-filter: blur(4px);
