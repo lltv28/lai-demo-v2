@@ -863,8 +863,9 @@ function ThinkingStepIcon({ status }: { status: StepStatus }) {
 }
 
 function ThinkingStepsDisplay({ steps }: { steps: ThinkingStepDisplay[] }) {
-  const [collapsed, setCollapsed] = useState(false);
-  const allDone = steps.every((s) => s.status === 'done');
+  const collapsed = false;
+  // Step 0 (idle header) stays 'idle' throughout — check processing steps only
+  const allDone = steps.length > 1 && steps.slice(1).every((s) => s.status === 'done');
   const prevAllDoneRef = useRef(false);
 
   useEffect(() => {
@@ -892,11 +893,9 @@ function ThinkingStepsDisplay({ steps }: { steps: ThinkingStepDisplay[] }) {
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              cursor: allDone ? 'pointer' : 'default',
-              paddingBottom: hasVisibleSteps && !collapsed ? '16px' : '0',
+              paddingBottom: hasVisibleSteps ? '16px' : '0',
               transition: 'padding 400ms ease',
             }}
-            onClick={allDone ? () => setCollapsed((c) => !c) : undefined}
           >
             <span
               className={idleStep.status === 'idle' ? 'thinking-shimmer-text' : undefined}
@@ -912,21 +911,6 @@ function ThinkingStepsDisplay({ steps }: { steps: ThinkingStepDisplay[] }) {
             >
               {idleStep.label}
             </span>
-            {allDone && (
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                style={{
-                  flexShrink: 0,
-                  transform: collapsed ? 'rotate(0deg)' : 'rotate(180deg)',
-                  transition: 'transform 300ms ease',
-                }}
-              >
-                <path d="M3.5 4.5L6 7L8.5 4.5" stroke="var(--alpha-light-400)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            )}
           </div>
         </div>
       )}
@@ -1317,7 +1301,7 @@ function AssistantMessage({
           ) : (
             <RichContent content={content} isStreaming={isStreaming} totalTableRows={totalTableRows} totalRoadmapStages={totalRoadmapStages} />
           )
-        ) : isStreaming && !(thinkingSteps && thinkingSteps.length > 0 && !thinkingSteps.every((s) => s.status === 'done')) ? (
+        ) : isStreaming && !(thinkingSteps && thinkingSteps.length > 1 && !thinkingSteps.slice(1).every((s) => s.status === 'done')) ? (
           <div className="typing-indicator">
             <span />
             <span />
@@ -1620,7 +1604,7 @@ export default function ChatPage({ initialMessage, simulatedResponse, simulatedS
         );
         await new Promise((r) => setTimeout(r, 3200 + Math.random() * 1300));
       }
-      setThinkingSteps((prev) => prev.map((s) => ({ ...s, status: 'done' as StepStatus })));
+      setThinkingSteps((prev) => prev.map((s, idx) => ({ ...s, status: idx === 0 ? 'idle' as StepStatus : 'done' as StepStatus })));
       await new Promise((r) => setTimeout(r, 600));
     }
 
