@@ -1343,7 +1343,7 @@ function AssistantMessage({
             width: '24px',
             height: '24px',
             borderRadius: 'var(--radius-full)',
-            border: '1.5px solid rgba(0, 139, 167, 0.3)',
+            border: '1.5px solid rgba(0, 139, 167, 0.8)',
           }}
         >
           <img
