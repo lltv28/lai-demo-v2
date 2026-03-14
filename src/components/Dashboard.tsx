@@ -22,15 +22,6 @@ export default function Dashboard() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
 
-  const startChat = useCallback((message: string) => {
-    setChatInitialMessage(message);
-    setChatSimulatedResponse(undefined);
-    setChatSimulatedSteps(undefined);
-    setChatSimulatedImage(undefined);
-    setChatKey((k) => k + 1);
-    setCurrentPage('chat');
-  }, []);
-
   const startSimulatedChat = useCallback((message: string) => {
     setChatInitialMessage(message);
     setChatSimulatedResponse(AD_RESULTS_MARKER);
