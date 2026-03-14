@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import ChatInput from './ChatInput';
 import { PenSparkleIcon, SuggestionArrowIcon, CopyIcon, ThumbsUpIcon, ThumbsDownIcon, VoiceIcon, FeedbackChatIcon, MicIcon, PauseIcon, PlayIcon, ArrowDownIcon } from './Icons';
 import { streamChat, type ChatMessage as APIChatMessage } from '../services/openai';
@@ -1291,8 +1292,8 @@ function AdResultsDisplay() {
           </div>
         ))}
       </div>
-      {/* Image view modal */}
-      {viewImage && (
+      {/* Image view modal — rendered via portal to escape scroll container */}
+      {viewImage && createPortal(
         <div
           className="ad-image-modal-overlay"
           onClick={() => setViewImage(null)}
@@ -1303,7 +1304,8 @@ function AdResultsDisplay() {
             className="ad-image-modal-img"
             onClick={(e) => e.stopPropagation()}
           />
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );
