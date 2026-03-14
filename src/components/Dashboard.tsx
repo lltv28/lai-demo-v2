@@ -202,12 +202,14 @@ export default function Dashboard() {
                     <div className="absolute" style={{ inset: '-1px' }}>
                       <img src={ringSvg} alt="" className="block w-full h-full" />
                     </div>
-                    {/* Avatar fill */}
-                    <div
+                    {/* Avatar photo */}
+                    <img
+                      src="/lucas-avatar.jpg"
+                      alt="Lucas AI"
                       className="absolute w-full h-full"
                       style={{
                         inset: 0,
-                        background: 'var(--color-pelorous-50)',
+                        objectFit: 'cover',
                       }}
                     />
                   </div>

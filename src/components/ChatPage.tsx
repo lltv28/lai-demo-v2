@@ -1341,14 +1341,15 @@ function AssistantMessage({
           className="shrink-0 flex items-center justify-center"
           style={{ width: '18px' }}
         >
-          <div
-            className="shrink-0 overflow-hidden"
+          <img
+            src="/lucas-avatar.jpg"
+            alt="Lucas AI"
             style={{
               width: '24px',
               height: '24px',
               borderRadius: 'var(--radius-full)',
-              background: 'var(--color-pelorous-50)',
               border: '1px solid var(--alpha-light-50)',
+              objectFit: 'cover',
             }}
           />
         </div>
